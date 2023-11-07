@@ -9,7 +9,7 @@
     <div class="note-title">{{ note.title }}</div>
     <div class="note-body">{{ note.body }}</div>
     <button @click="() => editing=true">Edit note</button>
-    <button @click="initiateDelete(note.id)">Delete note</button>
+    <button @click="initiateDelete">Delete note</button>
     <div v-if="confirmDelete">
       <button @click="removeNote(note.id)">Confirm delete</button>
       <button @click="confirmDelete=false">Cancel</button>
@@ -39,7 +39,7 @@ const saveNote = (noteId) => {
   })
 }
 
-const initiateDelete = (noteId) => {
+const initiateDelete = () => {
   confirmDelete.value = true
 }
 

@@ -1,17 +1,16 @@
 <template>
-  <li>{{ note.title }}</li>
+  <li>
+    <div class="note-title">{{ note.title }}</div>
+    <div class="note-body">{{ note.body }}</div>
+  </li>
 </template>
 
-<script>
+<script setup>
 import { defineProps } from 'vue'
-const props = defineProps({
-  note: {
-    type: Object,
-    required: true
-  }}
-)
+defineProps({
+  note: Object
+})
+
 </script>
 
-<style>
-
-</style>
+<style></style>

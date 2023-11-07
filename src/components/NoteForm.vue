@@ -13,7 +13,6 @@
         <button type="submit" :disabled="!newNoteTitle">Add note</button>
       </div>
     </form>
-    <p>The new note is {{ newNoteTitle }}</p>
   </div>
 </template>
 

@@ -8,6 +8,7 @@
   <li v-else>
     <div class="note-title">{{ note.title }}</div>
     <div class="note-body">{{ note.body }}</div>
+    <FormattedDate :date="note.createdAt" />
     <button @click="() => editing=true">Edit note</button>
     <button @click="initiateDelete">Delete note</button>
     <div v-if="confirmDelete">
@@ -20,6 +21,7 @@
 <script setup>
 import { ref } from 'vue'
 import { updateNote, deleteNote } from '@/requests'
+import FormattedDate from './BaseRelativeDate.vue'
 const props = defineProps({
   note: Object
 })

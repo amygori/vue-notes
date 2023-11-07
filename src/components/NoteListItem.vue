@@ -30,6 +30,7 @@ const editNote = (noteId) => {
 }
 
 const saveNote = (noteId) => {
+  if (!newNoteTitle.value) return
   updateNote({ id: noteId, title: newNoteTitle.value, body: newNoteBody.value }).then((updatedNote) => {
     emit('noteUpdated', updatedNote)
     editing.value = false

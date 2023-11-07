@@ -9,6 +9,7 @@
       :key="note.id"
       :note="note"
       @noteUpdated="($event) => addUpdatedNoteToList($event)"
+      @noteDeleted="($event) => removeDeletedNoteFromList($event)"
     />
   </ul>
   <div v-else>No notes to display</div>
@@ -37,6 +38,10 @@ const addUpdatedNoteToList = (updatedNote) => {
 
 const addNoteToList = (note) => {
   notes.value = [...notes.value, note]
+}
+
+const removeDeletedNoteFromList = (noteId) => {
+  notes.value = notes.value.filter((note) => note.id !== noteId)
 }
 </script>
 

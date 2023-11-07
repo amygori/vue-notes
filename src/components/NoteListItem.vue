@@ -9,17 +9,18 @@
     <div class="note-title">{{ note.title }}</div>
     <div class="note-body">{{ note.body }}</div>
     <button @click="() => editing=true">Edit note</button>
+    <button @click="removeNote(note.id)">Delete note</button>
   </li>
 </template>
 
 <script setup>
-import { defineProps, ref } from 'vue'
-import { updateNote } from '@/requests'
+import { ref } from 'vue'
+import { updateNote, deleteNote } from '@/requests'
 const props = defineProps({
   note: Object
 })
 
-const emit = defineEmits(['noteUpdated'])
+const emit = defineEmits(['noteUpdated', 'noteDeleted'])
 
 const editing = ref(false)
 const newNoteTitle = ref(props.note.title)
@@ -30,6 +31,13 @@ const saveNote = (noteId) => {
   updateNote({ id: noteId, title: newNoteTitle.value, body: newNoteBody.value }).then((updatedNote) => {
     emit('noteUpdated', updatedNote)
     editing.value = false
+  })
+}
+
+const removeNote = (noteId) => {
+  // TODO: add confirmation dialog
+  deleteNote(noteId).then(() => {
+    emit('noteDeleted', noteId)
   })
 }
 </script>

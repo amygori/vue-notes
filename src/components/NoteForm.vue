@@ -30,8 +30,15 @@ const addNote = () => {
   createNote({ title: newNoteTitle.value, body: newNoteBody.value }).then((createdNote) => {
     console.log({createdNote})
     emit('noteCreated', createdNote)
+    resetForm()
   })
 }
+
+const resetForm = () => {
+  newNoteTitle.value = ''
+  newNoteBody.value = ''
+}
+
 </script>
 
 <style></style>

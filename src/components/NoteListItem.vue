@@ -9,7 +9,11 @@
     <div class="note-title">{{ note.title }}</div>
     <div class="note-body">{{ note.body }}</div>
     <button @click="() => editing=true">Edit note</button>
-    <button @click="removeNote(note.id)">Delete note</button>
+    <button @click="initiateDelete(note.id)">Delete note</button>
+    <div v-if="confirmDelete">
+      <button @click="removeNote(note.id)">Confirm delete</button>
+      <button @click="confirmDelete=false">Cancel</button>
+    </div>
   </li>
 </template>
 
@@ -25,6 +29,7 @@ const emit = defineEmits(['noteUpdated', 'noteDeleted'])
 const editing = ref(false)
 const newNoteTitle = ref(props.note.title)
 const newNoteBody = ref(props.note.body)
+const confirmDelete = ref(false)
 
 const saveNote = (noteId) => {
   if (!newNoteTitle.value) return
@@ -32,6 +37,10 @@ const saveNote = (noteId) => {
     emit('noteUpdated', updatedNote)
     editing.value = false
   })
+}
+
+const initiateDelete = (noteId) => {
+  confirmDelete.value = true
 }
 
 const removeNote = (noteId) => {

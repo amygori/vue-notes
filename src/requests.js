@@ -13,3 +13,20 @@ export const createNote = (note) => {
     body: JSON.stringify({ title, body, createdAt: new Date() })
   }).then((response) => response.json())
 }
+
+export const updateNote = (note) => {
+  const { id, title, body } = note
+  return fetch(`${apiBaseURL}/${id}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ title, body })
+  }).then((response) => response.json())
+}
+
+export const deleteNote = (id) => {
+  return fetch(`${apiBaseURL}/${id}`, {
+    method: 'DELETE'
+  }).then((response) => response.json())
+}

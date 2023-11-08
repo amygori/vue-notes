@@ -6,7 +6,7 @@ import BaseLayout from './layouts/BaseLayout.vue'
 <template>
   <BaseLayout>
     <template #header>
-        <h1 class="text-2xl font-bold m-2">Vue Notes 🔭</h1>
+        <h1 class="text-3xl font-bold font-serif m-2">Vue Notes 🔭</h1>
     </template>
     <template #default>
       <NoteList />

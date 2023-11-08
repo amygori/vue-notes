@@ -32,6 +32,10 @@ module.exports = {
       gray: colors.gray,
       stone: colors.stone
     },
+    fontFamily: {
+      sans: ['Inter', 'sans-serif'],
+      serif: ['Domine', 'serif']
+    },
     plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')]
   }
 }

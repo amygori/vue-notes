@@ -1,8 +1,5 @@
 <template>
-  <div class="note-list">
-    <p>hello I am the note list</p>
-  </div>
-  <ul class="note-list" v-if="notes.length > 0">
+  <ul class="note-list mb-6" v-if="notes.length > 0">
     <!-- <li v-for="note in notes" :key="note.id">{{ note.title }}</li> -->
     <NoteListItem
       v-for="note in notes"

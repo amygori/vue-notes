@@ -2,7 +2,7 @@
 
 ## Run the app
 
-This app uses json-server and a local db.json file as a data store.
+This app uses json-server and a local db.json file as a data store. It's built with Vue and Vite and styled using Tailwind CSS.
 
 ```sh
 npm install
